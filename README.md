@@ -9,7 +9,7 @@ Similar to [react-router v4](https://github.com/ReactTraining/react-router)
 
 ### Usage
 
-You don't need to declare your routes at the top level. You can decalre them inside any component
+You don't need to declare your routes at the top level. You can declare them inside any component
 and if they match they will render, otherwise, router will render an empty div instead. 
 
 ```go
@@ -47,6 +47,12 @@ func (pv *PostView) Render() *vecty.HTML {
 	)
 }
 ```
+
+### Status
+
+Currently vecty-router does not fallback to hash routing if the History API is not on your browser.
+Also, it only does exact-match routing, so the next thing on my TODO list is to have loose matching so 
+you can render `/blog` and `/blog/{id}` at the same time.
 
 ### Alternatives
 
