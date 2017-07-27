@@ -1,10 +1,10 @@
 package router
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 
+	"github.com/cathalgarvey/fmtless"
 	"github.com/gopherjs/gopherjs/js"
 	"github.com/gopherjs/vecty"
 )
@@ -18,25 +18,34 @@ type Route struct {
 	vecty.Core
 	pattern string
 	c       vecty.Component
-	e       *EmptyComponent
 	p       *regexp.Regexp
+}
+
+// NewRouteOpts let you specify route matching options, such as exact match.
+type NewRouteOpts struct {
+	ExactMatch bool
 }
 
 // NewRoute takes a pattern and a component, if the pattern matches the
 // current URL, then it returns the component, otherwise it returns
 // an EmptyComponent.
-func NewRoute(pattern string, c vecty.Component) *Route {
+func NewRoute(pattern string, c vecty.Component, opts NewRouteOpts) *Route {
 	r := &Route{
 		pattern: pattern,
 		c:       c,
-		e:       &EmptyComponent{},
 	}
 
+	routePattern := pattern
+
 	if hasNamedVar.MatchString(pattern) {
-		r.p = regexp.MustCompile(
-			fmt.Sprintf("^%v$", hasNamedVar.ReplaceAllString(pattern, "([^/]+)")),
-		)
+		routePattern = hasNamedVar.ReplaceAllString(pattern, "([^/]+)")
 	}
+
+	if opts.ExactMatch {
+		routePattern = fmt.Sprintf("^%v$", routePattern)
+	}
+
+	r.p = regexp.MustCompile(routePattern)
 
 	register(r)
 
@@ -46,21 +55,18 @@ func NewRoute(pattern string, c vecty.Component) *Route {
 // Render renders the underlying component or EmptyComponent if route does not match
 func (r *Route) Render() *vecty.HTML {
 	path := pathname()
-	if matches(r.pattern, path) {
+
+	if r.p.MatchString(path) {
 		return r.c.Render()
 	}
 
-	if r.p != nil && r.p.MatchString(path) {
-		return r.c.Render()
-	}
-
-	return r.e.Render()
+	return nil
 }
 
 // GetNamedVar returns the parsed named variables from a URL.
 // If you did NewRoute("/blog/{id}", someComponent{}).
 // Then you can do GetNamedVar(someComponent{})
-// and get a ma like this: {"id": "id-var"}
+// and get a map like this: {"id": "id-var"}
 func GetNamedVar(c vecty.Component) map[string]string {
 	vars := map[string]string{}
 
@@ -96,15 +102,6 @@ func GetNamedVar(c vecty.Component) map[string]string {
 	}
 
 	return vars
-}
-
-// matches checks if the given pattern is the same as the browser URL.
-func matches(pattern, pathname string) bool {
-	if pathname == pattern {
-		return true
-	}
-
-	return false
 }
 
 // pathname gets the relative pathname from the browser.

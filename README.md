@@ -51,8 +51,7 @@ func (pv *PostView) Render() *vecty.HTML {
 ### Status
 
 Currently vecty-router does not fallback to hash routing if the History API is not on your browser.
-Also, it only does exact-match routing, so the next thing on my TODO list is to have loose matching so 
-you can render `/blog` and `/blog/{id}` at the same time.
+It also calls vecty.Rerender on all routes whenever a route changes. It should/will do its own deducing of whether to call rerender on a route or not based on route matches and whether it's already mounted or not.
 
 ### Alternatives
 
