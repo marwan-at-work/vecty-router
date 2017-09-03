@@ -21,10 +21,12 @@ type LinkOptions struct {
 // Link implements a frontend history Anchor tag.
 func Link(route, text string, opts LinkOptions) *vecty.HTML {
 	return elem.Anchor(
-		vecty.If(opts.ID != "", prop.ID(opts.ID)),
-		vecty.If(opts.Class != "", prop.Class(opts.Class)),
+		vecty.Markup(
+			vecty.If(opts.ID != "", prop.ID(opts.ID)),
+			vecty.If(opts.Class != "", prop.Class(opts.Class)),
+			event.Click(onClick(route)).PreventDefault(),
+		),
 		vecty.Text(text),
-		event.Click(onClick(route)).PreventDefault(),
 	)
 }
 
