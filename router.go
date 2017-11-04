@@ -53,11 +53,11 @@ func NewRoute(pattern string, c vecty.Component, opts NewRouteOpts) *Route {
 }
 
 // Render renders the underlying component or EmptyComponent if route does not match
-func (r *Route) Render() *vecty.HTML {
+func (r *Route) Render() vecty.ComponentOrHTML {
 	path := pathname()
 
 	if r.p.MatchString(path) {
-		return r.c.Render()
+		return r.c
 	}
 
 	return nil

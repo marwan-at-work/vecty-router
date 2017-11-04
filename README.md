@@ -27,7 +27,7 @@ type Body struct {
 }
 
 // Render renders the <body> tag with the App as its children
-func (b *Body) Render() *vecty.HTML {
+func (b *Body) Render() vecty.ComponentOrHTML {
 	return elem.Body(
 		router.NewRoute("/", &MainView{}, router.NewRouteOpts{ExactMath: true}),
 		router.NewRoute("/blog", &Blog{}, router.NewRouteOpts{}),
@@ -40,7 +40,7 @@ To retrieve a named variable like {id} in the example above you can do
 
 ```go
 // Render returns every title
-func (pv *PostView) Render() *vecty.HTML {
+func (pv *PostView) Render() vecty.ComponentOrHTML {
 	id := router.GetNamedVar(pv)["id"]
 	return elem.Div(
 		vecty.Text(id),
