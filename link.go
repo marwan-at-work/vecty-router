@@ -23,7 +23,7 @@ func Link(route, text string, opts LinkOptions) *vecty.HTML {
 	return elem.Anchor(
 		vecty.Markup(
 			vecty.MarkupIf(opts.ID != "", prop.ID(opts.ID)),
-			vecty.MarkupIf(opts.Class != "", prop.Class(opts.Class)),
+			vecty.MarkupIf(opts.Class != "", vecty.Class(opts.Class)),
 			event.Click(onClick(route)).PreventDefault(),
 		),
 		vecty.Text(text),
