@@ -1,7 +1,6 @@
 package router
 
 import (
-	"github.com/gopherjs/gopherjs/js"
 	"github.com/gopherjs/vecty"
 	"github.com/gopherjs/vecty/elem"
 	"github.com/gopherjs/vecty/event"
@@ -32,12 +31,6 @@ func Link(route, text string, opts LinkOptions) *vecty.HTML {
 
 func onClick(route string) EventCallback {
 	return func(e *vecty.Event) {
-		js.Global.Get("history").Call(
-			"pushState",
-			map[string]string{"linkRoute": route},
-			route,
-			route,
-		)
-		refreshRoutes()
+		Redirect(route)
 	}
 }
