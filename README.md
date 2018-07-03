@@ -48,7 +48,7 @@ func (pv *PostView) Render() vecty.ComponentOrHTML {
 }
 ```
 
-### Other eatures
+### Other features
 
 ##### Navigation through links
 
