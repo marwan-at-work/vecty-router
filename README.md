@@ -48,6 +48,24 @@ func (pv *PostView) Render() vecty.ComponentOrHTML {
 }
 ```
 
+### Other eatures
+
+##### Navigation through links
+
+```go
+func (c *component) Render() vecty.ComponentOrHTML {
+	return elem.Span(
+		router.Link("/my/route", "click here", nil),
+	)
+}
+```
+
+##### Programatically navigate to a route
+
+```go
+router.Redirect("/my/route")
+```
+
 ### Status
 
 Currently vecty-router does not fallback to hash routing if the History API is not on your browser.
