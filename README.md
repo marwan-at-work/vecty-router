@@ -5,7 +5,7 @@ Similar to [react-router v4](https://github.com/ReactTraining/react-router)
 
 ### Installation
 
-`go get github.com/marwan-at-work/vecty-router`
+`go get marwan.io/vecty-router`
 
 ### Usage
 
@@ -18,7 +18,7 @@ package components
 import (
 	"github.com/gopherjs/vecty"
 	"github.com/gopherjs/vecty/elem"
-	"github.com/marwan-at-work/vecty-router"
+	"marwan.io/vecty-router"
 )
 
 // Body renders the <body> tag

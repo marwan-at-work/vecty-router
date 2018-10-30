@@ -1,4 +1,4 @@
-module github.com/marwan-at-work/vecty-router
+module marwan.io/vecty-router
 
 require (
 	github.com/cathalgarvey/fmtless v0.0.0-20160509115409-5077ea938891
