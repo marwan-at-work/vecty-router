@@ -117,4 +117,7 @@ func refreshRoutes() {
 	for _, r := range routes {
 		vecty.Rerender(r)
 	}
+	if nf != nil {
+		vecty.Rerender(nf)
+	}
 }

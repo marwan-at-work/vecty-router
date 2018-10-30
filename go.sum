@@ -1,0 +1,6 @@
+github.com/cathalgarvey/fmtless v0.0.0-20160509115409-5077ea938891 h1:xI+8e6zab6gwsycpo0sENGYF8DmagNYnyOxpRhnA1eE=
+github.com/cathalgarvey/fmtless v0.0.0-20160509115409-5077ea938891/go.mod h1:47i2Tts0Ndudv8RXhALRmYzK4gB8Qh39wOGy5H9FIOU=
+github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 h1:EGx4pi6eqNxGaHF6qqu48+N2wcFQ5qg5FXgOdqsJ5d8=
+github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1/go.mod h1:wJfORRmW1u3UXTncJ5qlYoELFm8eSnnEO6hX4iZ3EWY=
+github.com/gopherjs/vecty v0.0.0-20180525005238-a3bd138280bf h1:J7WjKCdpxMhXDzFPP6d41YonnCnPi1JkYOFxIPoH1E0=
+github.com/gopherjs/vecty v0.0.0-20180525005238-a3bd138280bf/go.mod h1:5YRDuy7i7SgM0kL+0b5oq+jfDTqPyzV3TQbcDkBvcoE=
