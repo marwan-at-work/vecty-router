@@ -21,6 +21,7 @@ type LinkOptions struct {
 func Link(route, text string, opts LinkOptions) *vecty.HTML {
 	return elem.Anchor(
 		vecty.Markup(
+			prop.Href(route),
 			vecty.MarkupIf(opts.ID != "", prop.ID(opts.ID)),
 			vecty.MarkupIf(opts.Class != "", vecty.Class(opts.Class)),
 			event.Click(onClick(route)).PreventDefault(),
