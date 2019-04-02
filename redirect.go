@@ -1,14 +1,15 @@
 package router
 
 import (
-	"github.com/gopherjs/gopherjs/js"
+	"github.com/gopherjs/gopherwasm/js"
 )
 
 // Redirect ...
 func Redirect(route string) {
-	js.Global.Get("history").Call(
+
+	js.Global().Get("history").Call(
 		"pushState",
-		map[string]string{"redirectRoute": route},
+		map[string]interface{}{"redirectRoute": route},
 		route,
 		route,
 	)
