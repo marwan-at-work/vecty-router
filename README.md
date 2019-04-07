@@ -55,7 +55,7 @@ func (pv *PostView) Render() vecty.ComponentOrHTML {
 ```go
 func (c *component) Render() vecty.ComponentOrHTML {
 	return elem.Span(
-		router.Link("/my/route", "click here", nil),
+		router.Link("/my/route", "click here", router.LinkOptions{}),
 	)
 }
 ```
