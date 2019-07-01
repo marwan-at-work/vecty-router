@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/gopherjs/gopherwasm/js"
+	"syscall/js"
 )
 
 func init() {

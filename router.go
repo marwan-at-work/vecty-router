@@ -3,9 +3,9 @@ package router
 import (
 	"regexp"
 	"strings"
+	"syscall/js"
 
 	fmt "github.com/cathalgarvey/fmtless"
-	"github.com/gopherjs/gopherwasm/js"
 	"github.com/gopherjs/vecty"
 )
 
