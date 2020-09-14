@@ -1,6 +1,6 @@
 # Vecty Router
 
-A declarative client-side router for [Vecty](https://www.github.com/gopherjs/vecty) applications. 
+A declarative client-side router for [Vecty](https://www.github.com/hexops/vecty) applications. 
 Similar to [react-router v4](https://github.com/ReactTraining/react-router)
 
 ### Installation
@@ -16,8 +16,8 @@ and if they match they will render, otherwise, router will render an empty div i
 package components
 
 import (
-	"github.com/gopherjs/vecty"
-	"github.com/gopherjs/vecty/elem"
+	"github.com/hexops/vecty"
+	"github.com/hexops/vecty/elem"
 	"marwan.io/vecty-router"
 )
 
