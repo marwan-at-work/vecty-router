@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/gopherjs/vecty"
+	"github.com/hexops/vecty"
 )
 
 var nf *notFound

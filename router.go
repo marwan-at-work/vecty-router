@@ -6,7 +6,7 @@ import (
 	"syscall/js"
 
 	fmt "github.com/cathalgarvey/fmtless"
-	"github.com/gopherjs/vecty"
+	"github.com/hexops/vecty"
 )
 
 var routes = []*Route{}
