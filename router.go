@@ -30,6 +30,12 @@ type NewRouteOpts struct {
 // current URL, then it returns the component, otherwise it returns
 // an EmptyComponent.
 func NewRoute(pattern string, c vecty.Component, opts NewRouteOpts) *Route {
+	for _, r := range routes {
+		if r.pattern == pattern {
+			return r
+		}
+	}
+
 	r := &Route{
 		pattern: pattern,
 		c:       c,
